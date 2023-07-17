@@ -1,0 +1,131 @@
+/*#region Base Formatting*/
+@font-face 
+{
+    font-family: "mainFont";
+    src: url("../fonts/MapleMono-Bold.woff2");
+}
+body
+{
+    min-width: 540px;
+    font-family: "mainFont";
+    background-color: #303030;
+    color: #999999;
+    text-align: left;
+}
+
+a
+{
+    text-decoration: none;
+    color:#3f3f3f;
+}
+
+.header
+{
+    color: #DCD7BA;
+    text-align: center;
+}
+
+/*For links*/
+a:hover
+{
+    color:#999999
+}
+
+/*For buttons*/
+button 
+{
+    border-radius: 7px;
+    background-color: #6A9589; /* Green */
+    border: none;
+    color: #2D4F67;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.information
+{
+    color:#7FB4CA;
+}
+
+ul
+{
+    color: #E6C384;
+}
+/*#endregion*/
+
+/*#region Healthy Plate*/
+.Circle
+{
+    text-align: center;
+    margin-top: 70px;
+    min-height: 300px;
+    max-height: 300px;
+    font-size: 0; /*to handle collapsing margins*/
+}
+
+.quadrant
+{
+    border-style: solid;
+    border-color: #999999;
+    background-color: #bab9b9;
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+}
+
+.TopLeft
+{
+    border-top-left-radius: 100%;
+    border-width: 4px 2px 2px 4px;
+    transition: 0.2s;
+}
+.TopLeft:hover
+{
+    border-color: #999999;
+    background-color: #999999;
+    transform: translate(-10px, -10px);
+}
+.TopRight
+{
+    border-top-right-radius: 100%;
+    border-width: 4px 4px 2px 2px;
+    transition: 0.2s;
+}
+.TopRight:hover
+{
+    border-color: #999999;
+    background-color: #999999;
+    transform: translate(10px, -10px);
+}
+.BottomLeft
+{
+    border-bottom-left-radius: 100%;
+    border-width: 2px 2px 4px 4px;
+    transition: 0.2s;
+}
+.BottomLeft:hover
+{
+    border-color: #999999;
+    background-color: #999999;
+    transform: translate(-10px, 10px);
+}
+.BottomRight
+{
+    border-bottom-right-radius: 100%;
+    border-width: 2px 4px 4px 2px;
+    transition: 0.2s;
+}
+.BottomRight:hover
+{
+    border-color: #999999;
+    background-color: #999999;
+    transform: translate(10px, 10px);
+}
+
+/* #endregion */
+
+/*For Desktop*/
+@media screen and (min-width:800px)
+{
+    body{background-color: #3f3f3f;}
+}
