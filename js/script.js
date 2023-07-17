@@ -1,30 +1,39 @@
 
 /*For opening and closing healthy plate*/
-const OpenPlatebtn=document.querySelector("#HPlateOpenBtn");
-const ClosePlateBtn=document.querySelector("#HPlateCloseBtn");
-var plate=document.querySelector("#Plate1");
+const OpenPlateBtn = document.querySelector("#PlateOpenBtn");
+var plate = document.querySelector("#PlateContainer");
+var isOpen = false;
 
 HidePlate();
 
 function HidePlate()
-{ //function to hide all pages
-    plate.style.display="none"; 
-}
-
-function ShowPlate(displayType)
-{ //function to show selected page no
-    HidePlate(); 
-    plate.style.display=displayType;
-}
-
-OpenPlatebtn.addEventListener("click", function () 
 {
-    ShowPlate("block");
+    plate.style.display = "none"; 
 }
+
+function ShowPlate()
+{ 
+    HidePlate();
+    if(isOpen)
+    {
+        OpenPlateBtn.textContent = "Open";
+        plate.style.display = "none";
+    }
+    else
+    {
+        OpenPlateBtn.textContent = "Close";
+        plate.style.display = "flex";
+    }
+    isOpen = !isOpen;
+}
+
+OpenPlateBtn.addEventListener("click", function () 
+    {
+        ShowPlate();
+    }
 );
-
 ClosePlateBtn.addEventListener("click", function () 
-{
-    ShowPlate("none");
-}
+    {
+        ShowPlate();
+    }
 );
