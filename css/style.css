@@ -4,13 +4,33 @@
     font-family: "mainFont";
     src: url("../fonts/MapleMono-Bold.woff2");
 }
+
+html
+{
+    scroll-behavior: smooth;
+}
 body
 {
-    min-width: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     font-family: "mainFont";
     background-color: #303030;
-    color: #999999;
-    text-align: left;
+}
+
+#whole-page
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1024px;
+}
+
+section
+{
+    min-height: 120vh;
 }
 
 a
@@ -44,12 +64,27 @@ button
 
 .information
 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
     color:#7FB4CA;
 }
 
 ul
 {
     color: #E6C384;
+}
+
+.section-header
+{
+    text-align: center;
+}
+
+#centered-btn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /*#endregion*/
 
@@ -65,16 +100,11 @@ ul
 .quadrant
 {
     border-style: solid;
-    border-color: #C0A36E;
+    border-color: #E6C384;
     background-color: #E6C384;
     display: inline-block;
     height: 140px;
     width: 140px;
-}
-
-.quadrant:hover
-{
-    background-color: #C0A36E;
 }
 
 .TopLeft
@@ -89,46 +119,75 @@ ul
 }
 .TopRight
 {
+    border-color: #7E9CD8;
+    background-color: #7E9CD8;
     border-top-right-radius: 100%;
     border-width: 4px 4px 2px 2px;
     transition: 0.2s;
 }
+
 .TopRight:hover
+{
+    transform: translate(10px, -10px);
+}
+.vegetables:hover
 {
     transform: translate(10px, -10px);
 }
 .BottomLeft
 {
+    
+    border-color: #98BB6C;
+    background-color: #98BB6C;
     border-bottom-left-radius: 100%;
     border-width: 2px 2px 4px 4px;
     transition: 0.2s;
 }
-.BottomLeft:hover
+.vegetables:hover
 {
-    transform: translate(-10px, 10px);
+    transform: translate(0px, 10px);
+    transition: 0.2s;
 }
 .BottomRight
 {
+    border-color: #98BB6C;
+    background-color: #98BB6C;
     border-bottom-right-radius: 100%;
     border-width: 2px 4px 4px 2px;
     transition: 0.2s;
 }
-.BottomRight:hover
-{
-    transform: translate(10px, 10px);
-}
 
-#PlateContainer
+#plate-container
 {
+    
     background-color: #6A9589;
     border-radius: 14px;
     height: 350px;
+    width: 500px;
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+#plate-container-body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* #endregion */
+
+#wholegrains
+{
+    opacity: 1;
+}
+
+@keyframes fadeIn
+{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
 
 /*For Desktop*/
 @media screen and (min-width:800px)

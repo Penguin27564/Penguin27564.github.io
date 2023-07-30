@@ -1,7 +1,7 @@
 
-/*For opening and closing healthy plate*/
-const OpenPlateBtn = document.querySelector("#PlateOpenBtn");
-var plate = document.querySelector("#PlateContainer");
+//#region Healthy Plate
+const OpenPlateBtn = document.querySelector("#toggle-plate-btn");
+var plate = document.querySelector("#plate-container");
 var isOpen = false;
 
 HidePlate();
@@ -32,8 +32,20 @@ OpenPlateBtn.addEventListener("click", function ()
         ShowPlate();
     }
 );
-ClosePlateBtn.addEventListener("click", function () 
+//#endregion
+
+//#region Wholegrains
+var wholegrains = document.querySelector("wholegrains");
+const scrollToWholegrainsBtn = document.querySelector("#TopLeft");
+
+function show()
+{
+    wholegrains.style.opacity = 1;
+}
+
+scrollToWholegrainsBtn.addEventListener("click", function()
     {
-        ShowPlate();
+        show();
     }
 );
+//#endregion

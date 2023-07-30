@@ -9,47 +9,156 @@
 </head>
 
 <body>
-    <h1 class="header">Healthy Eating and Nutrition</h1>
-    <p class="information">
-        Healthy eating habits include replacing foods that contain trans fats, added salt, 
-        and sugar with more nutritious options. Following a healthy diet has many health benefits, such as:
-        <ul>
-            <li>Strengthing your bones and teeth</li>
-            <li>Reduces your risk of heart disease and type 2 diabetes</li>
-            <li>Provides the energy you need to keep active</li>
-            <li>Prevent diet-related illnesses, like some cancers</li>
-            <li>Maintaining a healthy weight</li>
-        </ul>
-    </p>
-    <p class="information">
-        A healthy diet typically includes nutrient-dense foods from all of the major food groups, such as:
-        <ul>
-            <li>Lean proteins</li>
-            <li>Whole grains</li>
-            <li>Healthy fats</li>
-            <li>Fruits and Vegetables</li>
-        </ul>
-    </p>
-
-    <!--Healthy Plate Menu-->
-    <nav>
-        <span class="information">The Healthy Plate:</span>
-        <button id="PlateOpenBtn"><b>Open</b></button>
-    </nav>
-
-    <div id="PlateContainer">
-        <!--Healthy Plate-->
-        <div class="Circle">
-            <div class="Top">
-                <a href="aboutme.html"><div class="TopLeft quadrant"></div></a>
-                <a href="education.html"><div class="TopRight quadrant"></div></a>
+    <div id="whole-page">
+        <section>
+            <h1 class="header">Healthy Eating and Nutrition</h1>
+            <div class="information">
+                Healthy eating habits include replacing foods that contain trans fats, added salt, 
+                and sugar with more nutritious options. Following a healthy diet has many health benefits, such as:
             </div>
-            <div class="Bottom">
-                <a href="hobbies.html"><div class="BottomLeft quadrant"></div></a>
-                <a href="projects.html"><div class="BottomRight quadrant"></div></a>   
+                <ul>
+                    <li>Strengthing your bones and teeth</li>
+                    <li>Reduces your risk of heart disease and type 2 diabetes</li>
+                    <li>Provides the energy you need to keep active</li>
+                    <li>Prevent diet-related illnesses, like some cancers</li>
+                    <li>Maintaining a healthy weight</li>
+                </ul>
+            <div class="information">
+                A healthy diet typically includes nutrient-dense foods from all of the major food groups, such as:
             </div>
-        </div>
-        <!--End of Healthy Plate-->
+                <ul>
+                    <li>Lean proteins</li>
+                    <li>Whole grains</li>
+                    <li>Healthy fats</li>
+                    <li>Fruits and Vegetables</li>
+                </ul>
+            <!--Healthy Plate Menu-->
+            <nav>
+                <h2 class="header">The Healthy Plate</h2>
+                <div id="centered-btn"><button id="toggle-plate-btn"><b>Open</b></button></div>
+            </nav>
+
+            <div id="plate-container-body">
+                <div id="plate-container">
+                    <!--Healthy Plate-->
+                    <div class="Circle">
+                        <div class="Top">
+                            <a href="#wholegrains-body"><div class="TopLeft quadrant"></div></a>
+                            <a href="#meat-body"><div class="TopRight quadrant"></div></a>
+                        </div>
+                        <div class="Bottom vegetables">
+                            <a href="#fruitveg-body"><div class="BottomLeft quadrant"></div></a>
+                            <a href="#fruitveg-body"><div class="BottomRight quadrant"></div></a>   
+                        </div>
+                    </div>
+                    <!--End of Healthy Plate-->
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <a id="wholegrains-body"></a> 
+            <div id="wholegrains">
+                <h1 class ="header">Quarter plate of Wholegrains</h1>
+                    <div class="information">
+                        Wholegrains are rich in nutrients due to them not being
+                        over-processed.
+                    </div>
+
+                    <div class="information">
+                        Refined grains such as white rice and white bread have been processed 
+                        which results in the loss of valuable nutrients.
+                    </div>
+
+                    <h2 class="header">What do wholegrains provide?</h2>
+                    <div class="information">
+                        Wholegrains contain vitamins B and E, minerals such as iron, 
+                        zinc and magnesium, phytochemicals and dietary fibre.
+                    </div>    
+
+                    <h2 class="header">What are the benefits of eating wholegrains?</h2>
+                    <div class="information">
+                        Eating wholegrains can help you with weight management by
+                        keeping you feeling full for longer, which helps prevent overeating.
+                    </div>
+                    <div class="information">
+                            Having wholegrains as part of your meal plan can also help lower 
+                            your risk of developing chronic diseases such as heart diseases, 
+                            diabetes and certain cancers in the long run.
+                    </div>
+            </div>
+        </section>
+
+        <section>
+            <a id="meat-body"></a> 
+            <div id="meat">
+                <h1 class ="header">Quarter plate of protein</h1>
+                    <div class="information">
+                        Proteins are a vital part of a health diet. They are made up of chemical
+                        building blocks called amino acids. Your body uses these amino acids
+                        to build and repair muscles and bones and as an energy source.
+                        Examples of protein are:
+                    </div>
+                        <ul>
+                            <li>Poultry</li>
+                            <li>Red Meat</li>
+                            <li>Seafood</li>
+                            <li>Eggs</li>
+                            <li>Dairy Products (eg: Milk, Yogurt, Cheese)</li>
+                            <li>Plant based protein (eg: Soy Milk, Tofu, Nuts)</li>
+                        </ul>
+
+                    <h2 class="header">What do proteins provide?</h2>
+                    <div class="information">
+                        Proteins contain vitamins and minerals such as
+                    </div>    
+                        <ul>
+                            <li>Vitamin B</li>
+                            <li>Zinc</li>
+                            <li>Iron</li>
+                        </ul>
+
+                    <h2 class="header">What are the benefits of eating protein?</h2>
+                    <div class="information">
+                        Proteins help to build bones, muscles, cartilage, and skin. Your hair and
+                        skin are comprised mostly of protein. Proteins also help to repair tissue
+                    </div>
+                    <div class="information">
+                        Your red blood cells contain a protein compound which carries oxygen
+                        throughout the body, supplying the body with the neccessary nutrients.
+                    </div>
+            </div>
+        </section>
+
+        <section>
+            <a id="fruitveg-body"></a> 
+            <div id="fruitveg">
+                <h1 class ="header">Half a plate of fruits and vegetables</h1>
+                    <div class="information">
+                        Fruit and vegetables are part of a healthy, balanced diet. Evidence
+                        shows there are significant health benefits to getting at least 5
+                        portions of fruit and vegetables total, not 5 portions of each. One
+                        portion weighs about 80 grams.
+                    </div>
+
+                    <h2 class="header">What do fruits and vegetables provide?</h2>
+                    <div class="information">
+                        Fruits and vegetables are low calorie foods that are rich in 
+                        dietary fibre, vitamins, minerals, phytochemicals, and antioxidants.
+                    </div>>    
+
+                    <h2 class="header">What are the benefits of eating fruits and vegetables?</h2>
+                    <div class="information">
+                        A diet rich in fruit and vegetables helps protect against heart disease, stroke,
+                        and event certain cancers. The high water and fibre content also minimises urges
+                        of overeating.
+                    </div>>
+            </div>
+        </section>
+
+        <section>
+            <h1 class="header">Meal Planning</h1>
+        </section>
     </div>
 </body>
 
