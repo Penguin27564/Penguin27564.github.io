@@ -4,12 +4,21 @@
 <head>
     <title>Healthy Eating Website</title>
     <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Defer to load js after webpage is done loading-->
     <script src="js/script.js" defer></script>
 </head>
 
 <body>
     <div id="whole-page">
+            <div class="navbar" id="navbar">
+                <a href="javascript:void(0);" class="icon" onclick="ToggleNavBar()">
+                    <img src="images/hamburger-menu-icon.png" alt="hamburger-menu-icon">
+                </a>
+                <a class="active" href="#healthy-plate">Healthy Plate</a>
+                <a href="#meal-planning">Meal Prep</a>
+                <a href="#nutrient-rich-foods">Better Foods</a>
+            </div>
         <section>
             <h1 class="header">Healthy Eating and Nutrition</h1>
             <div class="information">
@@ -34,8 +43,8 @@
                 </ul>
             <!--Healthy Plate Menu-->
             <nav>
-                <h2 class="header">The Healthy Plate</h2>
-                <div id="centered-btn"><button id="toggle-plate-btn"><b>Open</b></button></div>
+                <h2 class="section-header" id="healthy-plate">The Healthy Plate</h2>
+                <div class="centered-btn"><button id="toggle-plate-btn" onclick="ToggleSection(4)"><b>Open</b></button></div>
             </nav>
 
             <div id="plate-container-body">
@@ -43,23 +52,29 @@
                     <!--Healthy Plate-->
                     <div class="Circle">
                         <div class="Top">
-                            <a href="#wholegrains-body"><div class="TopLeft quadrant"></div></a>
-                            <a href="#meat-body"><div class="TopRight quadrant"></div></a>
+                            <a href="#wholegrains-body" onclick="ToggleSection(1)"><div class="TopLeft quadrant"></div></a>
+                            <a href="#meat-body" onclick="ToggleSection(2)"><div class="TopRight quadrant"></div></a>
                         </div>
                         <div class="Bottom vegetables">
-                            <a href="#fruitveg-body"><div class="BottomLeft quadrant"></div></a>
-                            <a href="#fruitveg-body"><div class="BottomRight quadrant"></div></a>   
+                            <a href="#fruitveg-body" onclick="ToggleSection(3)"><div class="BottomLeft quadrant"></div></a>
+                            <a href="#fruitveg-body" onclick="ToggleSection(3)"><div class="BottomRight quadrant"></div></a>   
                         </div>
                     </div>
                     <!--End of Healthy Plate-->
+
+                    <div id="mobile-plate">
+                        <a href="#wholegrains-body" onclick="ToggleSection(1)"><div class="information">Wholegrains</div></a>
+                        <a href="#meat-body" onclick="ToggleSection(2)"><div class="information">Protein</div></a>
+                        <a href="#fruitveg-body" onclick="ToggleSection(3)"><div class="information">Fruits and Vegetables</div></a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section class="wholegrains hidden" id="wholegrains">
             <a id="wholegrains-body"></a> 
-            <div id="wholegrains">
-                <h1 class ="header">Quarter plate of Wholegrains</h1>
+            <div>
+                <h1 class ="section-header">Quarter plate of Wholegrains</h1>
                     <div class="information">
                         Wholegrains are rich in nutrients due to them not being
                         over-processed.
@@ -89,10 +104,10 @@
             </div>
         </section>
 
-        <section>
+        <section class="protein hidden" id="protein">
             <a id="meat-body"></a> 
-            <div id="meat">
-                <h1 class ="header">Quarter plate of protein</h1>
+            <div>
+                <h1 class ="section-header">Quarter plate of protein</h1>
                     <div class="information">
                         Proteins are a vital part of a health diet. They are made up of chemical
                         building blocks called amino acids. Your body uses these amino acids
@@ -110,13 +125,8 @@
 
                     <h2 class="header">What do proteins provide?</h2>
                     <div class="information">
-                        Proteins contain vitamins and minerals such as
-                    </div>    
-                        <ul>
-                            <li>Vitamin B</li>
-                            <li>Zinc</li>
-                            <li>Iron</li>
-                        </ul>
+                        Proteins contain vitamins and minerals such as vitamin B, zinc, and iron
+                    </div>
 
                     <h2 class="header">What are the benefits of eating protein?</h2>
                     <div class="information">
@@ -130,10 +140,10 @@
             </div>
         </section>
 
-        <section>
+        <section class="fruitveg hidden" id="fruitveg">
             <a id="fruitveg-body"></a> 
-            <div id="fruitveg">
-                <h1 class ="header">Half a plate of fruits and vegetables</h1>
+            <div>
+                <h1 class ="section-header">Half a plate of fruits and vegetables</h1>
                     <div class="information">
                         Fruit and vegetables are part of a healthy, balanced diet. Evidence
                         shows there are significant health benefits to getting at least 5
@@ -145,19 +155,91 @@
                     <div class="information">
                         Fruits and vegetables are low calorie foods that are rich in 
                         dietary fibre, vitamins, minerals, phytochemicals, and antioxidants.
-                    </div>>    
+                    </div> 
 
                     <h2 class="header">What are the benefits of eating fruits and vegetables?</h2>
                     <div class="information">
                         A diet rich in fruit and vegetables helps protect against heart disease, stroke,
                         and event certain cancers. The high water and fibre content also minimises urges
                         of overeating.
-                    </div>>
+                    </div>
+            </div>
+        </section>
+
+        <section id="meal-planning-sect">
+            <h1 class="section-header" id="meal-planning">Meal Planning</h1>
+            <div class="information">
+                Planning out meals is the most important part of maintaining a healthy diet. Research shows that people get 
+                full by the amount of food they eat, not the number of calories they take in. 
+            </div>
+            <div class="information">
+                You can cut calories in your favorite foods by lowering the amount of fat and or increasing the amount of 
+                fiber-rich ingredients, such as vegetables or fruit. Eating fewer calories does not necessarily mean eating less food.
+            </div>
+            <div>
+                <h1 class="header">Calculate your macros</h1>
+                <form action="myscript.php" method="get">
+                    <div class="information">
+                        First, calculate your Basal Metabolic Rate (BMR), which is the number of calories your body burns a day
+                        without you doing anything.
+                    </div>
+                    <div class="information">
+                        BMR takes in your weight, height, age, and gender.
+                    </div>
+                    <div class="form-head">
+                        Weight(in pounds): <input type="text" name="weight" required>
+                    </div>
+                    <div class="form-head">
+                        Height(in inches): <input type="text" name="height" required>
+                    </div>
+                    <div class="form-head">
+                        Age: <input type="text" name="age" pattern="[0-9]+" required>
+                    </div>
+                    <div class="form-head">
+                        <label>Gender:</label> <select name="gender" required>
+                            <option value="">-- Choose a Gender --</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    <div class="information">
+                        Next, decide your activity level.
+                    </div>
+                    <div class="form-head">
+                        <label>Activity Level:</label> <select name="activity-level" required>
+                            <option value="">-- Activity Level --</option>
+                            <option>Little to None</option>
+                            <option>Light, few times a week</option>
+                            <option>Moderate, 3-5 times a week</option>
+                            <option>Heavy, 6-7 times a week</option>
+                            </select>
+                    </div>
+                    <div class="centered-btn">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
             </div>
         </section>
 
         <section>
-            <h1 class="header">Meal Planning</h1>
+            <h1 class="section-header" id="nutrient-rich-foods">Nutrient Rich Foods</h1>
+            <h2 class="header">Why eat nutrient rich foods?</h2>
+                    <div class="information">
+                        Nutrient-rich (or nutrient-dense) foods are low in sugar, sodium, starches, 
+                        and bad fats. They contain a lot of vitamins and minerals and few calories. 
+                        Your body needs vitamins and minerals, known as micronutrients. 
+                    </div>
+                    <div class="information">
+                        They nourish your body and help keep you healthy. 
+                        They can reduce your risk for chronic diseases. 
+                        Getting them through food ensures your body can absorb them properly.
+                    </div>
+                    <div class="information">
+                        Try to eat a variety of foods to get different vitamins and minerals. 
+                        Foods that naturally are nutrient-rich include fruits and vegetables. 
+                        Lean meats, fish, whole grains, dairy, legumes, nuts, and seeds also are 
+                        high in nutrients.
+                    </div>
         </section>
     </div>
 </body>

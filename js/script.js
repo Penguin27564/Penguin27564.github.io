@@ -1,15 +1,15 @@
 
 //#region Healthy Plate
-const OpenPlateBtn = document.querySelector("#toggle-plate-btn");
+var OpenPlateBtn = document.querySelector("#toggle-plate-btn");
 var plate = document.querySelector("#plate-container");
 var isOpen = false;
-
-HidePlate();
 
 function HidePlate()
 {
     plate.style.display = "none"; 
 }
+
+HidePlate();
 
 function ShowPlate()
 { 
@@ -34,18 +34,85 @@ OpenPlateBtn.addEventListener("click", function ()
 );
 //#endregion
 
-//#region Wholegrains
-var wholegrains = document.querySelector("wholegrains");
-const scrollToWholegrainsBtn = document.querySelector("#TopLeft");
-
-function show()
+// #region Nav Bar
+function ToggleNavBar() 
 {
-    wholegrains.style.opacity = 1;
+    var navbar = document.getElementById("navbar");
+    if (navbar.className === "navbar") {
+      navbar.className += " responsive";
+    } 
+    else {
+      navbar.className = "navbar";
+    }
 }
 
-scrollToWholegrainsBtn.addEventListener("click", function()
+ToggleNavBar();
+// #endregion
+
+// #region Healthy Plate
+
+//Toggle sections info
+var wholegrains = document.getElementById("wholegrains");
+var protein = document.getElementById("protein");
+var fruitveg = document.getElementById("fruitveg");
+
+function ToggleSection(ID)
+{
+    if (ID == 1) //Wholegrains
     {
-        show();
+        wholegrains.className = "wholegrains";
+        //Hide other segments
+        if (protein.className === "protein") 
+        {
+            protein.className += " hidden";
+        }
+        if (fruitveg.className === "fruitveg") 
+        {
+            fruitveg.className += " hidden";
+        }
     }
-);
-//#endregion
+    else if (ID == 2)
+    {
+        protein.className = "protein";
+        //Hide other segments
+        if (wholegrains.className === "wholegrains") 
+        {
+            wholegrains.className += " hidden";
+        }
+        if (fruitveg.className === "fruitveg") 
+        {
+            fruitveg.className += " hidden";
+        }
+    }
+    else if (ID == 3)
+    {
+        fruitveg.className = "fruitveg";
+        //Hide other segments
+        if (wholegrains.className === "wholegrains") 
+        {
+            wholegrains.className += " hidden";
+        }
+        if (protein.className === "protein") 
+        {
+            protein.className += " hidden";
+        }
+    }
+    else
+    {
+        if (wholegrains.className === "wholegrains") 
+        {
+            wholegrains.className += " hidden";
+        }
+        if (protein.className === "protein") 
+        {
+            protein.className += " hidden";
+        }
+        if (fruitveg.className === "fruitveg") 
+        {
+            fruitveg.className += " hidden";
+        }
+    }
+}
+
+ToggleSection(0);
+// #endregion
