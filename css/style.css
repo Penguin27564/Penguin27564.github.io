@@ -28,6 +28,12 @@ body
     max-width: 1024px;
 }
 
+img
+{
+    width: 90vw;
+    max-width: 600px;
+}
+
 section
 {
     min-height: 120vh;
@@ -59,7 +65,14 @@ button
     border: none;
     color: #2D4F67;
     display: inline-block;
-    font-size: 16px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+button:hover
+{
+    background-color: #54546D;
+    color: #363646;
 }
 
 .information
@@ -90,6 +103,12 @@ ul
     justify-content: center;
     align-items: center;
 }
+
+.icon
+{
+    width: 50px;
+}
+
 /*#endregion*/
 
 /*#region Healthy Plate*/
@@ -144,7 +163,6 @@ ul
 }
 .BottomLeft
 {
-    
     border-color: #98BB6C;
     background-color: #98BB6C;
     border-bottom-left-radius: 100%;
@@ -178,8 +196,15 @@ ul
     align-items: center;
 }
 
+#plate-container-body.fade
+{
+    opacity: 0;
+}
+
 #plate-container-body
 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -250,6 +275,19 @@ ul
 {
     display: none;
 }
+
+.bottombar
+{
+    opacity: 0.5;
+    background: #727169;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 /* #endregion */
 
 /* #region Macros Form */
@@ -264,9 +302,61 @@ ul
 }
 /* #endregion */
 
+/* #region Macros */
+#macros
+{
+    display: none;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#macros.fade
+{
+    opacity: 0;
+}
+
+#macrosbtn-container
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#macros-results
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#macros-results .information
+{
+    background-color: #6A9589;
+    border-radius: 14px;
+    height: 20vh;
+    width: 90vw;
+    max-width: 500px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: pre-line;
+}
+/* #endregion */
+
+/* #region Nutrient rich foods */
+.image-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* #endregion*/
+
 /* #region For Mobile*/
 /* Healthy Plate */
-@media screen and (min-width:799px)
+@media screen and (min-width:800px)
 {
     #mobile-plate
     {
@@ -319,3 +409,4 @@ ul
 {
     border: 1px solid red;
 }
+

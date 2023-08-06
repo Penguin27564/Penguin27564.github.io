@@ -19,8 +19,15 @@
                 <a href="#meal-planning">Meal Prep</a>
                 <a href="#nutrient-rich-foods">Better Foods</a>
             </div>
+            
+            <div class="bottombar" id="bottombar">
+                <a href="#healthy-eating">
+                    <img src="images/up-arrow.png" alt="up-arrow" class="icon">
+                </a>
+            </div>
+
         <section>
-            <h1 class="header">Healthy Eating and Nutrition</h1>
+            <h1 class="section-header fade" id="healthy-eating">Healthy Eating and Nutrition</h1>
             <div class="information">
                 Healthy eating habits include replacing foods that contain trans fats, added salt, 
                 and sugar with more nutritious options. Following a healthy diet has many health benefits, such as:
@@ -47,7 +54,7 @@
                 <div class="centered-btn"><button id="toggle-plate-btn" onclick="ToggleSection(4)"><b>Open</b></button></div>
             </nav>
 
-            <div id="plate-container-body">
+            <div id="plate-container-body" class="fade">
                 <div id="plate-container">
                     <!--Healthy Plate-->
                     <div class="Circle">
@@ -176,38 +183,39 @@
                 You can cut calories in your favorite foods by lowering the amount of fat and or increasing the amount of 
                 fiber-rich ingredients, such as vegetables or fruit. Eating fewer calories does not necessarily mean eating less food.
             </div>
-            <div>
-                <h1 class="header">Calculate your macros</h1>
-                <form action="myscript.php" method="get">
+
+            <div id="macrosbtn-container">
+                <button id="macrosbtn">Calculate your macros</button>
+            </div>
+
+            <div id="macros" class="fade">
+                <form name="macros-form" onsubmit="displayResults(); return false" id="macros-form">
                     <div class="information">
                         First, calculate your Basal Metabolic Rate (BMR), which is the number of calories your body burns a day
                         without you doing anything.
                     </div>
                     <div class="information">
-                        BMR takes in your weight, height, age, and gender.
+                        BMR takes in your weight, height, age, gender, and activity level.
                     </div>
                     <div class="form-head">
-                        Weight(in pounds): <input type="text" name="weight" required>
+                        Weight(in pounds): <input type="text" name="weight" pattern="[0-9]+" value="" required>
                     </div>
                     <div class="form-head">
-                        Height(in inches): <input type="text" name="height" required>
+                        Height(in inches): <input type="text" name="height" pattern="[0-9]+" value="" required>
                     </div>
                     <div class="form-head">
-                        Age: <input type="text" name="age" pattern="[0-9]+" required>
+                        Age: <input type="text" name="age" pattern="[0-9]+" value="" required>
                     </div>
                     <div class="form-head">
-                        <label>Gender:</label> <select name="gender" required>
+                        <label>Gender:</label> <select name="gender" id="gender-form" required>
                             <option value="">-- Choose a Gender --</option>
                             <option>Male</option>
                             <option>Female</option>
                         </select>
                     </div>
-                    <div class="information">
-                        Next, decide your activity level.
-                    </div>
                     <div class="form-head">
-                        <label>Activity Level:</label> <select name="activity-level" required>
-                            <option value="">-- Activity Level --</option>
+                        <label>Activity Level:</label> <select name="activity-level" id="activity-form" required>
+                            <option value="">-- Choose your activity level --</option>
                             <option>Little to None</option>
                             <option>Light, few times a week</option>
                             <option>Moderate, 3-5 times a week</option>
@@ -218,28 +226,36 @@
                         <button type="submit">Submit</button>
                     </div>
                 </form>
+                <div id="macros-results">
+                    <div class="information" id="bmr-result"></div>
+                    <div class="information" id="dac-result"></div>
+                    <div class="information" id="split-result"></div>
+                </div>
             </div>
         </section>
 
         <section>
             <h1 class="section-header" id="nutrient-rich-foods">Nutrient Rich Foods</h1>
             <h2 class="header">Why eat nutrient rich foods?</h2>
-                    <div class="information">
-                        Nutrient-rich (or nutrient-dense) foods are low in sugar, sodium, starches, 
-                        and bad fats. They contain a lot of vitamins and minerals and few calories. 
-                        Your body needs vitamins and minerals, known as micronutrients. 
-                    </div>
-                    <div class="information">
-                        They nourish your body and help keep you healthy. 
-                        They can reduce your risk for chronic diseases. 
-                        Getting them through food ensures your body can absorb them properly.
-                    </div>
-                    <div class="information">
-                        Try to eat a variety of foods to get different vitamins and minerals. 
-                        Foods that naturally are nutrient-rich include fruits and vegetables. 
-                        Lean meats, fish, whole grains, dairy, legumes, nuts, and seeds also are 
-                        high in nutrients.
-                    </div>
+                <div class="information">
+                    Nutrient-rich (or nutrient-dense) foods are low in sugar, sodium, starches, 
+                    and bad fats. They contain a lot of vitamins and minerals and few calories. 
+                    Your body needs vitamins and minerals, known as micronutrients. 
+                </div>
+                <div class="information">
+                    They nourish your body and help keep you healthy. 
+                    They can reduce your risk for chronic diseases. 
+                    Getting them through food ensures your body can absorb them properly.
+                </div>
+                <div class="information">
+                    Try to eat a variety of foods to get different vitamins and minerals. 
+                    Foods that naturally are nutrient-rich include fruits and vegetables. 
+                    Lean meats, fish, whole grains, dairy, legumes, nuts, and seeds also are 
+                    high in nutrients.
+                </div>
+                <div class="image-container">
+                    <img src="images/nutrient-rich-foods.jpeg" alt="nutrient-rich-foods">
+                </div>
         </section>
     </div>
 </body>
