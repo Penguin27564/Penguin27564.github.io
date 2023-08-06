@@ -11,11 +11,13 @@ function TogglePlate()
     if (plateOpen == false)
     {
         plateBody.style.display = "flex";
+        openPlateBtn.textContent = "Close";
         plateOpen = true;
     }
     else
     {
         plateBody.style.display = "none";
+        openPlateBtn.textContent = "Open";
         plateOpen = false;
     }
 }
