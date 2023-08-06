@@ -3,35 +3,42 @@
 
 <head>
     <title>Healthy Eating Website</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Defer to load js after webpage is done loading-->
-    <script src="js/script.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <div id="whole-page">
+            <!-- Navbar at the top of the screen -->
             <div class="navbar" id="navbar">
+                <!-- When icon is clicked, display navbar dropdown (for mobile only) -->
                 <a href="javascript:void(0);" class="icon" onclick="ToggleNavBar()">
                     <img src="images/hamburger-menu-icon.png" alt="hamburger-menu-icon">
                 </a>
-                <a class="active" href="#healthy-plate">Healthy Plate</a>
+                <!-- Various links to parts of the webpage, using section ID to scroll to the desired part -->
+                <a href="#healthy-plate">Healthy Plate</a>
                 <a href="#meal-planning">Meal Prep</a>
                 <a href="#nutrient-rich-foods">Better Foods</a>
             </div>
             
+            <!-- Icon at the bottom of the screen used to send users back to the top for easy and quick navigation -->
             <div class="bottombar" id="bottombar">
                 <a href="#healthy-eating">
                     <img src="images/up-arrow.png" alt="up-arrow" class="icon">
                 </a>
             </div>
 
+        <!-- Sections are used to break up the page, allowing for easy viewing and consuming of information. -->
         <section>
-            <h1 class="section-header fade" id="healthy-eating">Healthy Eating and Nutrition</h1>
+            <h1 class="section-header" id="healthy-eating">Healthy Eating and Nutrition</h1>
+            <!-- Information divs are the bulk of the page, displaying the relavent information in digestable chunks -->
             <div class="information">
                 Healthy eating habits include replacing foods that contain trans fats, added salt, 
                 and sugar with more nutritious options. Following a healthy diet has many health benefits, such as:
             </div>
+                <!-- Unordered List used to display examples -->
                 <ul>
                     <li>Strengthing your bones and teeth</li>
                     <li>Reduces your risk of heart disease and type 2 diabetes</li>
@@ -51,9 +58,10 @@
             <!--Healthy Plate Menu-->
             <nav>
                 <h2 class="section-header" id="healthy-plate">The Healthy Plate</h2>
-                <div class="centered-btn"><button id="toggle-plate-btn" onclick="ToggleSection(4)"><b>Open</b></button></div>
+                <!-- The button runs the ToggleSection(ID) function in js when clicked, using ID 0 hides all sections -->
+                <div class="centered-btn"><button id="toggle-plate-btn" onclick="ToggleSection(0)"><b>Open</b></button></div>
             </nav>
-
+            <!-- Class fade toggles on and off to fade in the plate the first time a user opens it -->
             <div id="plate-container-body" class="fade">
                 <div id="plate-container">
                     <!--Healthy Plate-->
@@ -70,17 +78,19 @@
                     <!--End of Healthy Plate-->
 
                     <div id="mobile-plate">
-                        <a href="#wholegrains-body" onclick="ToggleSection(1)"><div class="information">Wholegrains</div></a>
-                        <a href="#meat-body" onclick="ToggleSection(2)"><div class="information">Protein</div></a>
-                        <a href="#fruitveg-body" onclick="ToggleSection(3)"><div class="information">Fruits and Vegetables</div></a>
+                        <a href="#wholegrains-body" onclick="ToggleSection(1)"><div class="information" id="wholegrains-mobile">Wholegrains</div></a>
+                        <a href="#meat-body" onclick="ToggleSection(2)"><div class="information" id="meat-mobile">Protein</div></a>
+                        <a href="#fruitveg-body" onclick="ToggleSection(3)"><div class="information" id="fruitveg-mobile">Fruits and Vegetables</div></a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Hidden class used to hide section until requested by user via the healthy plate above, hidden display is set to none in order to not take up space in the page -->
         <section class="wholegrains hidden" id="wholegrains">
             <a id="wholegrains-body"></a> 
             <div>
+                <!-- Section header used to mark the title of a new section to clearly divide different topics in the page -->
                 <h1 class ="section-header">Quarter plate of Wholegrains</h1>
                     <div class="information">
                         Wholegrains are rich in nutrients due to them not being
@@ -173,6 +183,7 @@
             </div>
         </section>
 
+        <!-- New section as a brand new topic is introduced -->
         <section id="meal-planning-sect">
             <h1 class="section-header" id="meal-planning">Meal Planning</h1>
             <div class="information">
@@ -184,11 +195,13 @@
                 fiber-rich ingredients, such as vegetables or fruit. Eating fewer calories does not necessarily mean eating less food.
             </div>
 
+            <!-- Button put in a container to move it to middle of screen using flexbox -->
             <div id="macrosbtn-container">
                 <button id="macrosbtn">Calculate your macros</button>
             </div>
 
             <div id="macros" class="fade">
+                <!-- When form is submitted, run the displayResults() function in js, also return false is used to prevent webpage from going back to top after submission -->
                 <form name="macros-form" onsubmit="displayResults(); return false" id="macros-form">
                     <div class="information">
                         First, calculate your Basal Metabolic Rate (BMR), which is the number of calories your body burns a day
@@ -198,16 +211,17 @@
                         BMR takes in your weight, height, age, gender, and activity level.
                     </div>
                     <div class="form-head">
-                        Weight(in pounds): <input type="text" name="weight" pattern="[0-9]+" value="" required>
+                        Weight(in pounds): <input type="number" name="weight" value="" required>
                     </div>
                     <div class="form-head">
-                        Height(in inches): <input type="text" name="height" pattern="[0-9]+" value="" required>
+                        Height(in inches): <input type="number" name="height" value="" required>
                     </div>
                     <div class="form-head">
-                        Age: <input type="text" name="age" pattern="[0-9]+" value="" required>
+                        Age: <input type="number" name="age" value="" required>
                     </div>
                     <div class="form-head">
                         <label>Gender:</label> <select name="gender" id="gender-form" required>
+                            <!-- First option is default with no value -->
                             <option value="">-- Choose a Gender --</option>
                             <option>Male</option>
                             <option>Female</option>
@@ -222,10 +236,12 @@
                             <option>Heavy, 6-7 times a week</option>
                             </select>
                     </div>
+                    <!-- Button is put in div to center it using flexbox -->
                     <div class="centered-btn">
                         <button type="submit">Submit</button>
                     </div>
                 </form>
+                <!-- 3 containers for results also hidden until macro calculate is opened -->
                 <div id="macros-results">
                     <div class="information" id="bmr-result"></div>
                     <div class="information" id="dac-result"></div>
@@ -253,7 +269,7 @@
                     Lean meats, fish, whole grains, dairy, legumes, nuts, and seeds also are 
                     high in nutrients.
                 </div>
-                <div class="image-container">
+                <div id="image-container">
                     <img src="images/nutrient-rich-foods.jpeg" alt="nutrient-rich-foods">
                 </div>
         </section>

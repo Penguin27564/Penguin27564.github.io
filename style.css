@@ -1,4 +1,5 @@
 /*#region Base Formatting*/
+/* This is used for formatting areas used all around the page */
 @font-face 
 {
     font-family: "mainFont";
@@ -7,6 +8,7 @@
 
 html
 {
+    /* To make smooth scrolling when sent to anchors around the page */
     scroll-behavior: smooth;
 }
 body
@@ -21,6 +23,7 @@ body
 
 #whole-page
 {
+    /* To center all sections of the page to the middle */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,6 +39,7 @@ img
 
 section
 {
+    /* To ensure each page is not too cluttered, spaces the sections out */
     min-height: 120vh;
 }
 
@@ -43,18 +47,6 @@ a
 {
     text-decoration: none;
     color:#3f3f3f;
-}
-
-.header
-{
-    color: #DCD7BA;
-    text-align: center;
-}
-
-/*For links*/
-a:hover
-{
-    color:#999999
 }
 
 /*For buttons*/
@@ -75,6 +67,23 @@ button:hover
     color: #363646;
 }
 
+ul
+{
+    color: #E6C384;
+}
+
+.header
+{
+    color: #DCD7BA;
+    text-align: center;
+}
+
+/*For links*/
+a:hover
+{
+    color:#999999
+}
+
 .information
 {
     display: block;
@@ -82,11 +91,6 @@ button:hover
     text-align: center;
     color:#7FB4CA;
     margin-bottom: 20px;
-}
-
-ul
-{
-    color: #E6C384;
 }
 
 .section-header
@@ -109,13 +113,15 @@ ul
     width: 50px;
 }
 
-/*#endregion*/
-
-/*#region Healthy Plate*/
+/* Used when contents need to be hidden and showen using events */
 .hidden
 {
     display: none;
 }
+
+/*#endregion*/
+
+/*#region Healthy Plate*/
 .Circle
 {
     text-align: center;
@@ -136,6 +142,7 @@ ul
 
 .TopLeft
 {
+    /* Round each quadrant of the square to make a circle */
     border-top-left-radius: 100%;
     border-width: 4px 2px 2px 4px;
     transition: 0.2s;
@@ -146,6 +153,7 @@ ul
 }
 .TopRight
 {
+    /* Change color to signify different segments */
     border-color: #7E9CD8;
     background-color: #7E9CD8;
     border-top-right-radius: 100%;
@@ -157,10 +165,7 @@ ul
 {
     transform: translate(10px, -10px);
 }
-.vegetables:hover
-{
-    transform: translate(10px, -10px);
-}
+
 .BottomLeft
 {
     border-color: #98BB6C;
@@ -185,6 +190,7 @@ ul
 
 #plate-container
 {
+    /* The container of the plate scales based of view width and height, but has a max size to prevent becoming too large */
     background-color: #6A9589;
     border-radius: 14px;
     height: 50vh;
@@ -210,22 +216,6 @@ ul
     align-items: center;
 }
 
-/* Wholegrains */
-.wholegrains.hidden 
-    {
-        display: none;
-    }
-/* Proteins */
-.protein.hidden 
-    {
-        display: none;
-    }
-/* Fruits & Veg */
-.fruitveg.hidden 
-    {
-        display: none;
-    }
-
 /* Mobile Plate */
 #mobile-plate
 {
@@ -237,40 +227,47 @@ ul
 {
     margin-bottom: 40px;
 }
+
+#wholegrains-mobile
+{
+    color: #E6C384;
+}
+
+#meat-mobile
+{
+    color: #7E9CD8;
+}
+
+#fruitveg-mobile
+{
+    color: #98BB6C;
+}
 /* #endregion */
 
-/*#region Nav Bar */
+/*#region Navigation */
 .navbar 
 {
     background-color: #333;
-    overflow: hidden;
 }
   
   /* Style the links inside the navigation bar */
 .navbar a 
 {
-    float: left;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
+
 /* Change the color of links on hover */
 .navbar a:hover 
 {
     background-color: #ddd;
     color: black;
 }
-  
-/* Add a color to the active/current link */
-.navbar a.active 
-{
-    background-color: #2D4F67;
-    color: white;
-}
 
-/* Hide the link that should open and close the topnav on small screens */
+/* Hide the link that should open and close the navbar on smaller screens */
 .navbar .icon 
 {
     display: none;
@@ -283,9 +280,11 @@ ul
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Fixed position to follow user while scrolling, to allow them to return to top whenever */
     position: fixed;
     bottom: 0;
     left: 0;
+    /* Width used to make background cover entire bottom of screen instead of just icon size */
     width: 100%;
 }
 /* #endregion */
@@ -293,6 +292,7 @@ ul
 /* #region Macros Form */
 .form-head
 {
+    /* To move elements of the form to the left */
     display: block;
     justify-content: left;
     text-align: left;
@@ -305,7 +305,6 @@ ul
 /* #region Macros */
 #macros
 {
-    display: none;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
 }
@@ -327,6 +326,7 @@ ul
     display: flex;
     justify-content: center;
     align-items: center;
+    /* To ensure all 3 sections of macros results go ontop of each other instead of side by side */
     flex-direction: column;
 }
 
@@ -334,6 +334,7 @@ ul
 {
     background-color: #6A9589;
     border-radius: 14px;
+    /* Scales based of height and width of screen, but max size implemented to prevent containers getting to big */
     height: 20vh;
     width: 90vw;
     max-width: 500px;
@@ -341,12 +342,14 @@ ul
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Used to allow line breaks in results from js */
     white-space: pre-line;
 }
 /* #endregion */
 
 /* #region Nutrient rich foods */
-.image-container
+
+#image-container
 {
     display: flex;
     align-items: center;
@@ -354,7 +357,7 @@ ul
 }
 /* #endregion*/
 
-/* #region For Mobile*/
+/* #region Responsive*/
 /* Healthy Plate */
 @media screen and (min-width:800px)
 {
@@ -404,9 +407,3 @@ ul
     }
 }
 /* #endregion */
-
-/*
-{
-    border: 1px solid red;
-}
-

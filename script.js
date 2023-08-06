@@ -1,38 +1,27 @@
 
 //#region Healthy Plate
-var OpenPlateBtn = document.querySelector("#toggle-plate-btn");
-var plate = document.querySelector("#plate-container");
-var plateBody = document.querySelector("#plate-container-body");
-var isOpen = false;
+var openPlateBtn = document.getElementById("toggle-plate-btn");
+var plate = document.getElementById("plate-container");
+var plateBody = document.getElementById("plate-container-body");
+var plateOpen = false;
 
-function HidePlate()
+function TogglePlate()
 {
-    plate.style.display = "none"; 
-}
-
-HidePlate();
-
-function ShowPlate()
-{ 
-    HidePlate();
-    if(isOpen)
+    plateBody.classList.toggle("fade");
+    if (plateOpen == false)
     {
-        OpenPlateBtn.textContent = "Open";
-        plate.style.display = "none";
+        plateBody.style.display = "flex";
+        plateOpen = true;
     }
     else
     {
-        OpenPlateBtn.textContent = "Close";
+        plateBody.style.display = "none";
+        plateOpen = false;
     }
-    isOpen = !isOpen;
 }
 
-OpenPlateBtn.addEventListener("click", function () 
-    {
-        ShowPlate();
-        plateBody.classList.toggle("fade");
-    }
-);
+//Waits until button is clicked to run function
+openPlateBtn.addEventListener("click", TogglePlate, false);
 //#endregion
 
 // #region Nav Bar
@@ -46,8 +35,6 @@ function ToggleNavBar()
       navbar.className = "navbar";
     }
 }
-
-ToggleNavBar();
 // #endregion
 
 // #region Healthy Plate
@@ -72,7 +59,7 @@ function ToggleSection(ID)
             fruitveg.className += " hidden";
         }
     }
-    else if (ID == 2)
+    else if (ID == 2) //Protein
     {
         protein.className = "protein";
         //Hide other segments
@@ -85,7 +72,7 @@ function ToggleSection(ID)
             fruitveg.className += " hidden";
         }
     }
-    else if (ID == 3)
+    else if (ID == 3) //Fruits and Veg
     {
         fruitveg.className = "fruitveg";
         //Hide other segments
@@ -100,6 +87,7 @@ function ToggleSection(ID)
     }
     else
     {
+        //Hide all if ID is not 1,2, or 3
         if (wholegrains.className === "wholegrains") 
         {
             wholegrains.className += " hidden";
@@ -122,11 +110,14 @@ ToggleSection(0);
 // To toggle the macros form
 var macros = document.getElementById("macros");
 var macrosOpen = false;
+var macrosbtn = document.getElementById("macrosbtn");
 
-document.getElementById("macrosbtn").onclick = function()
+macrosbtn.addEventListener("click", ToggleMacros, false);
+
+function ToggleMacros()
 {
     macros.classList.toggle("fade");
-    if (!macrosOpen)
+    if (macrosOpen == false)
     {
         macros.style.display = "block";
         macrosOpen = true;
@@ -138,25 +129,28 @@ document.getElementById("macrosbtn").onclick = function()
     }
 };
 
-var bmrResult = document.querySelector("#bmr-result");
-var dacResult = document.querySelector("#dac-result");
-var splitResult = document.querySelector("#split-result");
-var genderSelect = document.querySelector("#gender-form");
-var activitySelect = document.querySelector("#activity-form");
-var form = document.querySelector("#macros-form");
+//Logic of the form
+var bmrResult = document.getElementById("bmr-result");
+var dacResult = document.getElementById("dac-result");
+var splitResult = document.getElementById("split-result");
+var genderSelect = document.getElementById("gender-form");
+var activitySelect = document.getElementById("activity-form");
+var form = document.getElementById("macros-form");
+//Variables to put into calculations
 var multipler;
 var BMR;
 var DAC;
 var proteinAndCarbs;
 var fats;
-//var macrosResult = document.querySelector("#macros-results");
 
 function displayResults()
 {
+    //Get the input values of the 3 numbers
     const weight = form.weight.value;
     const height = form.height.value;
     const age = form.age.value;
 
+    //Get the option selected by the user
     if (activitySelect.value == "Little to None")
     {
         multipler = 1.2;
@@ -187,11 +181,13 @@ function displayResults()
         BMR = 0;
     }
 
+    //Calculate based on input
     DAC = BMR * multipler;
 
-    proteinAndCarbs = DAC * 0.4;
-    fats = DAC * 0.2;
+    proteinAndCarbs = DAC * 0.4 / 4;
+    fats = DAC * 0.2 / 9;
 
+    //Display results in each respective information box
     bmrResult.textContent = "Your BMR is: " + BMR.toFixed(2);
     dacResult.textContent = "Your DAC is: " + DAC.toFixed(2);
     splitResult.textContent = "Protein: " + proteinAndCarbs.toFixed(2) + "g" + '\n' +
